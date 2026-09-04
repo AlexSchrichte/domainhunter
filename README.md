@@ -1,7 +1,7 @@
 # Domain Hunter
 
 ## The following updates have been implemented from the latest current version of [domainhunter](https://github.com/threatexpress/domainhunter)
-
+* Updated ExpiredDomains auth flow
 * Updated Trellix (McAfee) Web Gateway (Cloud) reputation checking
 * Updated Bluecoat check with SeleniumBase implementation to bypass Cloudflare turnstile
 * Updated CISCO Talos check with SeleniumBase implementation to bypass antibot system
@@ -16,13 +16,20 @@ sbase install chromedriver latest
 
 # Introduction
 
-Authors Joe Vest (@joevest) & Andrew Chiles (@andrewchiles) & Updated by @froyo75
+Authors Joe Vest (@joevest) & Andrew Chiles (@andrewchiles)
+
+Updated by: 
+    @froyo75
+    @alexschrichte
 
 Domain name selection is an important aspect of preparation for penetration tests and especially Red Team engagements. Commonly, domains that were used previously for benign purposes and were properly categorized can be purchased for only a few dollars. Such domains can allow a team to bypass reputation based web filters and network egress restrictions for phishing and C2 related tasks. 
 
 This Python based tool was written to quickly query the Expireddomains.net search engine for expired/available domains with a previous history of use. It then optionally queries for domain reputation against services like Symantec Site Review (BlueCoat), IBM X-Force, and Cisco Talos. The primary tool output is a timestamped HTML table style report.
 
 ## Changelog
+
+- 04 September 2026
+    + Updated expireddomains.net authentication flow and removed some pinned dependencies
 
 - 25 February 2025
     + Updated Bluecoat check with SeleniumBase implementation to bypass Cloudflare turnstile
