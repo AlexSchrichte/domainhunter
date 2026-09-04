@@ -442,9 +442,9 @@ def drawTable(header,data):
 def loginExpiredDomains():
     """Login to the ExpiredDomains site with supplied credentials"""
 
-    data = "login=%s&password=%s&redirect_2_url=/" % (username, password)
+    data = "login=%s&password=%s" % (username, password)
     headers["Content-Type"] = "application/x-www-form-urlencoded"
-    r = s.post(expireddomainHost + "/login/", headers=headers, data=data, proxies=None, verify=False, allow_redirects=False)
+    r = s.post(expireddomainLoginHost + "/logincheck/", headers=headers, data=data, proxies=None, verify=False, allow_redirects=True)
     cookies = s.cookies.get_dict()
 
     if "location" in r.headers:
@@ -566,6 +566,7 @@ Examples:
     malwaredomainsURL = 'https://gitlab.com/gerowen/old-malware-domains-ad-list/-/raw/master/malwaredomainslist.txt'
     expireddomainsqueryURL = 'https://www.expireddomains.net/domain-name-search'
     expireddomainHost = "https://member.expireddomains.net"
+    expireddomainLoginHost = "https://www.expireddomains.net"
 
     timestamp = time.strftime("%Y%m%d_%H%M%S")
 
